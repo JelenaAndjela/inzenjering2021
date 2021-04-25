@@ -1,3 +1,124 @@
+%'Identity Spoofing').
+parentOf('Identity Spoofing','Pharming').
+parentOf('Identity Spoofing','Phishing').
+parentOf('Identity Spoofing','Fake the Source of Data').
+parentOf('Identity Spoofing','Principal Spoof').
+parentOf('Identity Spoofing','Signature Spoof').
+prerequisites('Identity Spoofing','The identity associated with the message or resource must be removable or modifiable in an undetectable way').
+mitigations('Identity Spoofing','Multi-factor authentication').
+related_weaknesses('Identity Spoofing','Improper Authentication').
+
+
+%'Pharming'
+attack('Pharming').
+prerequisites('Pharming','Vulnerable DNS software or improperly protected hosts file or router that can be poisoned').
+prerequisites('Pharming','A website that handles sensitive information but does not use a secure connection and a certificate that is valid is also prone to pharming').
+mitigations('Pharming','Known vulnerabilities in DNS or router software or in operating systems must be patched as soon as a fix has been released and tested').
+mitigations('Pharming','All sensitive information must be handled over a secure connection').
+mitigations('Pharming','End users must ensure that they provide sensitive information only to websites that they trust, over a secure connection with a valid certificate issued by a well-known certificate authority').
+related_weaknesses('Pharming','Origin Validation Error').
+related_weaknesses('Pharming','Reliance on Reverse DNS Resolution for a Security-Critical Action').
+
+%'Phishing'
+attack('Phishing').
+parentOf('Phishing','Spear Phishing').
+parentOf('Phishing','Mobile Phishing').
+parentOf('Phishing','Voice Phishing').
+prerequisites('Phishing','An attacker needs to have a way to initiate contact with the victim').
+prerequisites('Phishing','An attacker needs to correctly guess the entity with which the victim does business and impersonate it').
+prerequisites('Phishing','An attacker needs to have a sufficiently compelling call to action to prompt the user to take action').
+prerequisites('Phishing','The replicated website needs to look extremely similar to the original website and the URL used to get to that website needs to look like the real URL of the said business entity').
+mitigations('Phishing','Do not follow any links that you receive within your e-mails and certainly do not input any login credentials on the page that they take you too').
+mitigations('Phishing','Never reply to any e-mails that ask you to provide sensitive information of any kind').
+
+%'Spear Phishing'
+attack('Spear Phishing').
+prerequisites('Spear Phishing','None').
+mitigations('Spear Phishing','Do not follow any links that you receive within your e-mails and certainly do not input any login credentials on the page that they take you too').
+mitigations('Spear Phishing','Never reply to any e-mails that ask you to provide sensitive information of any kind').
+
+%'Mobile Phishing'
+attack('Mobile Phishing').
+prerequisites('Mobile Phishing','An adversary needs mobile phone numbers to initiate contact with the victim').
+prerequisites('Mobile Phishing','An adversary needs to correctly guess the entity with which the victim does business and impersonate it').
+prerequisites('Mobile Phishing','An adversary needs to have a sufficiently compelling call to action to prompt the user to take action').
+prerequisites('Mobile Phishing','The replicated website needs to look extremely similar to the original website and the URL used to get to that website needs to look like the real URL of the said business entity').
+mitigations('Mobile Phishing','Do not follow any links that you receive within text messages and do not input any login credentials on the page that they take you too').
+mitigations('Mobile Phishing','Never reply to any text messages that ask you to provide sensitive information of any kind').
+
+%'Voice Phishing'
+attack('Voice Phishing').
+prerequisites('Voice Phishing','An adversary needs phone numbers to initiate contact with the victim, in addition to a legitimate-looking telephone number to call the victim from').
+prerequisites('Voice Phishing','An adversary needs to correctly guess the entity with which the victim does business and impersonate it').
+prerequisites('Voice Phishing','An adversary needs to have a sufficiently compelling call to action to prompt the user to take action').
+prerequisites('Voice Phishing','If passively conducting this attack via a spoofed website, replicated website needs to look extremely similar to the original website and the URL used to get to that website needs to look like the real URL of the said business entity').
+mitigations('Voice Phishing','Do not accept calls from unknown numbers or from numbers that may be flagged as spam').
+mitigations('Voice Phishing','Do not call numbers that appear on-screen after being unexpectedly redirected to potentially malicious websites').
+mitigations('Voice Phishing','Do not provide sensitive information over voice calls that are not legitimately initiated').
+
+%'Fake the Source of Data'
+attack('Fake the Source of Data').
+parentOf('Fake the Source of Data','DNS Rebinding').
+parentOf('Fake the Source of Data','Counterfeit Websites').
+parentOf('Fake the Source of Data','Counterfeit Organizations').
+parentOf('Fake the Source of Data','DNS Spoofing').
+parentOf('Fake the Source of Data','Token Impersonation').
+prerequisites('Fake the Source of Data','This attack is only applicable when a vulnerable entity associates data or services with an identity').
+related_weaknesses('Fake the Source of Data','Improper Authentication').
+
+%'DNS Rebinding'
+attack('DNS Rebinding').
+prerequisites('DNS Rebinding','The target browser must access content server from the adversary controlled DNS name').
+mitigations('DNS Rebinding','IP Pinning causes browsers to record the IP address to which a given name resolves and continue using this address regardless of the TTL set in the DNS response').
+mitigations('DNS Rebinding','Reject HTTP request with a malicious Host header').
+mitigations('DNS Rebinding','Employ DNS resolvers that prevent external names from resolving to internal addresses').
+related_weaknesses('DNS Rebinding','Reliance on Reverse DNS Resolution for a Security-Critical Action').
+
+%'Counterfeit Websites'
+attack('Counterfeit Websites').
+prerequisites('Counterfeit Websites','None').
+
+%'Counterfeit Organizations'
+attack('Counterfeit Organizations').
+prerequisites('Counterfeit Organizations','None').
+
+%'DNS Spoofing'
+attack('DNS Spoofing').
+prerequisites('DNS Spoofing','On/In Path Device').
+mitigations('DNS Spoofing','Avoid dependence on DNS').
+mitigations('DNS Spoofing','Include "hosts file"/IP address in the application').
+mitigations('DNS Spoofing','Utilize a .onion domain with Tor support').
+mitigations('DNS Spoofing','DNSSEC').
+mitigations('DNS Spoofing','DNS-hold-open').
+
+%'Token Impersonation'
+attack('Token Impersonation').
+prerequisites('Token Impersonation','This pattern of attack is only applicable when a downstream user leverages tokens to verify identity, and then takes action based on that identity').
+related_weaknesses('Token Impersonation','Improper Authentication').
+
+%'Principal Spoof'
+attack('Principal Spoof').
+parentOf('Principal Spoof','Cross Frame Scripting (XFS)').
+parentOf('Principal Spoof','Terrestrial Jamming').
+prerequisites('Principal Spoof','The target must associate data or activities with a person's identity and the adversary must be able to modify this identity without detection').
+
+%'Cross Frame Scripting (XFS)'
+attack('Cross Frame Scripting (XFS)').
+prerequisites('Cross Frame Scripting (XFS)','The user's browser must have vulnerabilities in its implementation of the same-origin policy').
+mitigations('Cross Frame Scripting (XFS)','Avoid clicking on untrusted links').
+mitigations('Cross Frame Scripting (XFS)','Employ techniques such as frame busting, which is a method by which developers aim to prevent their site being loaded within a frame').
+
+%'Terrestrial Jamming'
+attack('Terrestrial Jamming').
+
+%'Signature Spoof'
+attack('Signature Spoof').
+prerequisites('Signature Spoof','The victim or victim system is dependent upon a cryptographic signature-based verification system for validation of one or more security events or actions').
+prerequisites('Signature Spoof','The validation can be bypassed via an attacker-provided signature that makes it appear that the legitimate authoritative or reputable source provided the signature').
+related_weaknesses('Signature Spoof','Improper Input Validation').
+related_weaknesses('Signature Spoof','Use of a Broken or Risky Cryptographic Algorithm').
+related_weaknesses('Signature Spoof','Authentication Bypass by Spoofing').
+
 %'Resource Location Spoofing'
 attack('%Resource Location Spoofing'').
 parentOf('Resource Location Spoofing','Redirect Access to Libraries').
