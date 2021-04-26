@@ -35,12 +35,12 @@ related_weaknesses('Argument Injection','Incorrect Comparison').
 %'Command Delimiters'
 attack('Command Delimiters').
 
-prerequisites('Command Delimiters','Software's input validation or filtering must not detect and block presence of additional malicious command.').
+prerequisites('Command Delimiters','Software s input validation or filtering must not detect and block presence of additional malicious command').
 
-mitigations('Command Delimiters','Perform allowlist validation against a positive specification for command length, type, and parameters.').
-mitigations('Command Delimiters','Limit program privileges, so if commands circumvent program input validation or filter routines then commands do not running under a privileged account.').
-mitigations('Command Delimiters',' Perform input validation for all remote content.').
-mitigations('Command Delimiters','Use type conversions such as JDBC prepared statements.').
+mitigations('Command Delimiters','Perform allowlist validation against a positive specification for command length, type, and parameters').
+mitigations('Command Delimiters','Limit program privileges, so if commands circumvent program input validation or filter routines then commands do not running under a privileged account').
+mitigations('Command Delimiters',' Perform input validation for all remote content').
+mitigations('Command Delimiters','Use type conversions such as JDBC prepared statements').
 
 
 
@@ -52,7 +52,10 @@ related_weaknesses('Command Delimiters','Incorrect Regular Expression').
 related_weaknesses('Command Delimiters','Improper Neutralization of CRLF Sequences').
 related_weaknesses('Command Delimiters','Improper Neutralization of Delimiters').
 related_weaknesses('Command Delimiters','Failure to Sanitize Paired Delimiters').
-related_weaknesses('Command Delimiters','Improper Neutralization of Special Elements').related_weaknesses(('Command Delimiters','Improper Neutralization of Variable Name Delimiters').related_weaknesses('Command Delimiters','Incorrect Comparison').related_weaknesses('Command Delimiters','OWASP Top Ten 2007 Category A2 - Injection Flaws').
+related_weaknesses('Command Delimiters','Improper Neutralization of Special Elements').
+related_weaknesses('Command Delimiters','Improper Neutralization of Variable Name Delimiters').
+related_weaknesses('Command Delimiters','Incorrect Comparison').
+related_weaknesses('Command Delimiters','OWASP Top Ten 2007 Category A2 - Injection Flaws').
 %'Email Injection'
 attack('Email Injection').
 
@@ -198,11 +201,11 @@ related_weaknesses('Token Impersonation','Improper Authentication').
 attack('Principal Spoof').
 parentOf('Principal Spoof','Cross Frame Scripting (XFS)').
 parentOf('Principal Spoof','Terrestrial Jamming').
-prerequisites('Principal Spoof','The target must associate data or activities with a person's identity and the adversary must be able to modify this identity without detection').
+prerequisites('Principal Spoof','The target must associate data or activities with a person s identity and the adversary must be able to modify this identity without detection').
 
 %'Cross Frame Scripting (XFS)'
 attack('Cross Frame Scripting (XFS)').
-prerequisites('Cross Frame Scripting (XFS)','The user's browser must have vulnerabilities in its implementation of the same-origin policy').
+prerequisites('Cross Frame Scripting (XFS)','The user s browser must have vulnerabilities in its implementation of the same-origin policy').
 mitigations('Cross Frame Scripting (XFS)','Avoid clicking on untrusted links').
 mitigations('Cross Frame Scripting (XFS)','Employ techniques such as frame busting, which is a method by which developers aim to prevent their site being loaded within a frame').
 
@@ -218,7 +221,7 @@ related_weaknesses('Signature Spoof','Use of a Broken or Risky Cryptographic Alg
 related_weaknesses('Signature Spoof','Authentication Bypass by Spoofing').
 
 %'Resource Location Spoofing'
-attack('%Resource Location Spoofing'').
+attack('Resource Location Spoofing').
 parentOf('Resource Location Spoofing','Redirect Access to Libraries').
 parentOf('Resource Location Spoofing','Establish Rogue Location').
 prerequisites('Resource Location Spoofing','None').
@@ -249,7 +252,7 @@ parentOf('Action Spoofing','Android Activity Hijack').
 parentOf('Action Spoofing','Task Impersonation').
 parentOf('Action Spoofing','Tapjacking').
 prerequisites('Action Spoofing','The adversary must convince the victim into performing the decoy action.').
-prerequisites('Action Spoofing','The adversary must have the means to control a user's interface to present them with a decoy action as well as the actual malicious action.').
+prerequisites('Action Spoofing','The adversary must have the means to control a user s interface to present them with a decoy action as well as the actual malicious action.').
 mitigations('Action Spoofing','Avoid interacting with suspicious sites or clicking suspicious links.').
 mitigations('Action Spoofing','An organization should provide regular, robust cybersecurity training to its employees.').
 
@@ -257,7 +260,7 @@ mitigations('Action Spoofing','An organization should provide regular, robust cy
 %'Clickjacking'
 attack('Clickjacking').
 prerequisites('Clickjacking','The victim is communicating with the target application via a web based UI and not a thick client').
-prerequisites('Clickjacking','The victim's browser security policies allow at least one of the following JavaScript, Flash, iFrames, ActiveX, or CSS.').
+prerequisites('Clickjacking','The victim s browser security policies allow at least one of the following JavaScript, Flash, iFrames, ActiveX, or CSS.').
 prerequisites('Clickjacking','The victim uses a modern browser that supports UI elements like clickable buttons (i.e. not using an old text only browser)').
 prerequisites('Clickjacking','The victim uses a modern browser that supports UI elements like clickable buttons (i.e. not using an old text only browser)').
 prerequisites('Clickjacking','The victim uses a modern browser that supports UI elements like clickable buttons (i.e. not using an old text only browser)').
@@ -278,7 +281,7 @@ mitigations('Android Activity Hijack','Never use implicit intents for inter-appl
 attack('Task Impersonation').
 prerequisites('Task Impersonation','The adversary must already have access to the target system via some means.').
 prerequisites('Task Impersonation','A legitimate task must exist that an adversary can impersonate to glean credentials.').
-prerequisites('Task Impersonation','The user's privileges allow them to execute certain tasks with elevated privileges.').
+prerequisites('Task Impersonation','The user s privileges allow them to execute certain tasks with elevated privileges.').
 related_weaknesses('Task Impersonation','Improper Restriction of Rendered UI Layers or Frames').
 mitigations('Task Impersonation','The only known mitigation to this attack is to avoid installing the malicious application on the device.').
 
@@ -286,7 +289,7 @@ mitigations('Task Impersonation','The only known mitigation to this attack is to
 
 %'Tapjacking'
 attack('Tapjacking').
-prerequisites('Tapjacking','This pattern of attack requires the ability to execute a malicious application on the user's device.').
+prerequisites('Tapjacking','This pattern of attack requires the ability to execute a malicious application on the user s device.').
 related_weaknesses('Tapjacking','Improper Restriction of Rendered UI Layers or Frames').
 
 
@@ -311,8 +314,8 @@ mitigations('Malicious Software Update','Validate software updates before instal
 
 %'Manipulate Human Behavior'
 attack('Manipulate Human Behavior').
-parentOf('Manipulate Human Behavior','	Pretexting').
-parentOf('Manipulate Human Behavior','	Influence Perception').
+parentOf('Manipulate Human Behavior','Pretexting').
+parentOf('Manipulate Human Behavior','Influence Perception').
 parentOf('Manipulate Human Behavior','Target Influence via Framing').
 parentOf('Manipulate Human Behavior','Influence via Incentives').
 parentOf('Manipulate Human Behavior','Influence via Psychological Principles').
@@ -383,12 +386,17 @@ related_weaknesses('Harvesting Information via API Event Monitoring','Client-Sid
 %'Pretexting via Customer Service'
 attack('Pretexting via Customer Service').
 
-%'Pretexting via Customer Service'
-attack('Pretexting via Customer Service').
 
-%'Pretexting via Customer Service'
-attack('Pretexting via Customer Service').
+napadiLista(N) :- findall(N1,attack(N1),N).
+mereLista(M) :- findall(M1,mitigations(N,M1),M).
 
-%'Pretexting via Customer Service'
-attack('Pretexting via Customer Service').
+%mere da mi izbaci
+%uneti u prolog
+%mere('Parameter Injection',M)
+mere(N,M) :- findall(M1,mitigations(N,M1),M).
 
+
+%napadi za meru
+%uneti u prolog
+%napadi('Leverage encryption techniques during information transactions so as to protect them from attack patterns of this kind.',N)
+napadi(M,N) :- findall(N1,mitigations(N1,M),N).
