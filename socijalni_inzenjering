@@ -386,17 +386,22 @@ related_weaknesses('Harvesting Information via API Event Monitoring','Client-Sid
 %'Pretexting via Customer Service'
 attack('Pretexting via Customer Service').
 
-
+%lista svih napada i lista svih mera
 napadiLista(N) :- findall(N1,attack(N1),N).
 mereLista(M) :- findall(M1,mitigations(N,M1),M).
 
-%mere da mi izbaci
+%pronalazenje napada na osnovu slabosti
+%uneti u prolog
+%napadi_slabosti('Missing Encryption of Sensitive Data',N)
+napadi_slabosti(S,N) :- findall(N1,related_weaknesses(N1,S),N).
+
+
+%pronalazenje napada na osnovu predispozicija
+%uneti u prolog
+%napadi_predispozicija('The target software is utilizing application framework APIs',N)
+napadi_predispozicija(P,N) :- findall(N1,prerequisites(N1,P),N).
+
+%predlaganje mere za napad
 %uneti u prolog
 %mere('Parameter Injection',M)
 mere(N,M) :- findall(M1,mitigations(N,M1),M).
-
-
-%napadi za meru
-%uneti u prolog
-%napadi('Leverage encryption techniques during information transactions so as to protect them from attack patterns of this kind.',N)
-napadi(M,N) :- findall(N1,mitigations(N1,M),N).
