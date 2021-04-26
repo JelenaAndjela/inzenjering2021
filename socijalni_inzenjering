@@ -1,28 +1,23 @@
 %'Parameter Injection'
 attack('Social Engineering').
 attack('Parameter Injection').
-parentOf('Parameter Injection','	Argument Injection').
-parentOf('Parameter Injection','	Command Delimiters').
-parentOf('Parameter Injection','	Email Injection').
-parentOf('Parameter Injection','	Format String Injection').
-parentOf('Parameter Injection','	Reflection Injection').
-parentOf('Parameter Injection','	Flash Injection').
-
+parentOf('Parameter Injection','Argument Injection').
+parentOf('Parameter Injection','Command Delimiters').
+parentOf('Parameter Injection','Email Injection').
+parentOf('Parameter Injection','Format String Injection').
+parentOf('Parameter Injection','Reflection Injection').
+parentOf('Parameter Injection','Flash Injection').
 prerequisites('Parameter Injection','The target application must use a parameter encoding where separators and parameter identifiers are expressed in regular text.').
 mitigations('Parameter Injection','Implement an audit log written to a separate host.').
 related_weaknesses('Parameter Injection','Improper Neutralization of Argument Delimiters in a Command').
 
+
 %'Argument Injection'
 attack('Argument Injection').
-
-
 prerequisites('Argument Injection','Target software fails to strip all user-supplied input of any content that could cause the shell to perform unexpected actions.').
-
 mitigations('Argument Injection','Do not program input values directly on command shell, instead treat user input as guilty until proven innocent.').
 mitigations('Argument Injection','Limit program privileges, so if metacharacters or other methods circumvent program input validation routines and shell access is attained then it is not running under a privileged account.').
 mitigations('Argument Injection','Implement an audit log that is written to a separate host, in the event of a compromise the audit log may be able to provide evidence and details of the compromise.').
-
-
 related_weaknesses('Argument Injection','Improper Neutralization of Special Elements in Output Used by a Downstream Component').
 related_weaknesses('Argument Injection','Improper Neutralization of Expression/Command Delimiters').
 related_weaknesses('Argument Injection','Incomplete List of Disallowed Inputs').
@@ -34,16 +29,11 @@ related_weaknesses('Argument Injection','Incorrect Comparison').
 
 %'Command Delimiters'
 attack('Command Delimiters').
-
 prerequisites('Command Delimiters','Software s input validation or filtering must not detect and block presence of additional malicious command').
-
 mitigations('Command Delimiters','Perform allowlist validation against a positive specification for command length, type, and parameters').
 mitigations('Command Delimiters','Limit program privileges, so if commands circumvent program input validation or filter routines then commands do not running under a privileged account').
 mitigations('Command Delimiters',' Perform input validation for all remote content').
 mitigations('Command Delimiters','Use type conversions such as JDBC prepared statements').
-
-
-
 related_weaknesses('Command Delimiters','Improper Neutralization of Expression/Command Delimiters').
 related_weaknesses('Command Delimiters','Improper Neutralization of Special Elements used in a Command').
 related_weaknesses('Command Delimiters','Incomplete List of Disallowed Inputs').
@@ -56,40 +46,38 @@ related_weaknesses('Command Delimiters','Improper Neutralization of Special Elem
 related_weaknesses('Command Delimiters','Improper Neutralization of Variable Name Delimiters').
 related_weaknesses('Command Delimiters','Incorrect Comparison').
 related_weaknesses('Command Delimiters','OWASP Top Ten 2007 Category A2 - Injection Flaws').
+
+
 %'Email Injection'
 attack('Email Injection').
-
 prerequisites('Email Injection','The target application must allow the user to send email to some recipient, to specify the content at least one header field in the message, and must fail to sanitize against the injection of command separators.').
 related_weaknesses('Email Injection','Improper Neutralization of Escape, Meta, or Control Sequences').
 
+
 %'Format String Injection'
 attack('Format String Injection').
-
 prerequisites('Format String Injection','The target application must accept a strings as user input, fail to sanitize string formatting characters in the user input, and process this string using functions that interpret string formatting characters.').
-
 mitigations('Format String Injection',' Limit the usage of formatting string functions.').
 mitigations('Format String Injection','Strong input validation - All user-controllable input must be validated and filtered for illegal formatting characters.').
-
 related_weaknesses('Format String Injection','Use of Externally-Controlled Format String').
 related_weaknesses('Format String Injection','Improper Input Validation').
 related_weaknesses('Format String Injection','Improper Neutralization of Special Elements in Output Used by a Downstream Component').
 related_weaknesses('Format String Injection','String Errors').
 
+
 %'Reflection Injection'
 attack('Reflection Injection').
-
 prerequisites('Reflection Injection','The target application must utilize reflection libraries and allow users to directly control the parameters to these methods. If the adversary can host classes where the target can invoke them, more powerful variants of this attack are possible.').
+
 
 %'Flash Injection'
 attack('Flash Injection').
-
 prerequisites('Flash Injection','The target must be capable of running Flash applications. In some cases, the victim must follow an attacker-supplied link.').
 mitigations('Flash Injection','Remove sensitive information such as user name and password in the SWF file.').
 mitigations('Flash Injection','Use validation on both client and server side.').
 mitigations('Flash Injection','Remove debug information.').
 mitigations('Flash Injection','Use SSL when loading external data').
 mitigations('Flash Injection','Use crossdomain.xml file to allow the application domain to load stuff or the SWF file called by other domain.').
-
 related_weaknesses('Flash Injection','Improper Input Validation').
 related_weaknesses('Flash Injection','Incomplete List of Disallowed Inputs').
 related_weaknesses('Flash Injection','Incorrect Comparison').
@@ -98,6 +86,7 @@ related_weaknesses('Flash Injection','Incorrect Comparison').
 %'Information Elicitation'
 attack('Information Elicitation').
 parentOf('Information Elicitation','Pretexting').
+
 
 %'Identity Spoofing').
 parentOf('Identity Spoofing','Pharming').
@@ -167,6 +156,7 @@ parentOf('Fake the Source of Data','Token Impersonation').
 prerequisites('Fake the Source of Data','This attack is only applicable when a vulnerable entity associates data or services with an identity').
 related_weaknesses('Fake the Source of Data','Improper Authentication').
 
+
 %'DNS Rebinding'
 attack('DNS Rebinding').
 prerequisites('DNS Rebinding','The target browser must access content server from the adversary controlled DNS name').
@@ -179,9 +169,11 @@ related_weaknesses('DNS Rebinding','Reliance on Reverse DNS Resolution for a Sec
 attack('Counterfeit Websites').
 prerequisites('Counterfeit Websites','None').
 
+
 %'Counterfeit Organizations'
 attack('Counterfeit Organizations').
 prerequisites('Counterfeit Organizations','None').
+
 
 %'DNS Spoofing'
 attack('DNS Spoofing').
@@ -209,8 +201,10 @@ prerequisites('Cross Frame Scripting (XFS)','The user s browser must have vulner
 mitigations('Cross Frame Scripting (XFS)','Avoid clicking on untrusted links').
 mitigations('Cross Frame Scripting (XFS)','Employ techniques such as frame busting, which is a method by which developers aim to prevent their site being loaded within a frame').
 
+
 %'Terrestrial Jamming'
 attack('Terrestrial Jamming').
+
 
 %'Signature Spoof'
 attack('Signature Spoof').
@@ -219,6 +213,7 @@ prerequisites('Signature Spoof','The validation can be bypassed via an attacker-
 related_weaknesses('Signature Spoof','Improper Input Validation').
 related_weaknesses('Signature Spoof','Use of a Broken or Risky Cryptographic Algorithm').
 related_weaknesses('Signature Spoof','Authentication Bypass by Spoofing').
+
 
 %'Resource Location Spoofing'
 attack('Resource Location Spoofing').
@@ -242,7 +237,6 @@ mitigations('Redirect Access to Libraries','Use obfuscation and other techniques
 attack('Establish Rogue Location').
 prerequisites('Establish Rogue Location','A resource is expected to available to the user.').
 related_weaknesses('Establish Rogue Location','Exposure of Sensitive Information to an Unauthorized Actor').
-
 
 
 %'Action Spoofing'
@@ -269,6 +263,7 @@ mitigations('Clickjacking','If using the Firefox browser, use the NoScript plug-
 mitigations('Clickjacking','Turn off JavaScript, Flash and disable CSS.').
 mitigations('Clickjacking','When maintaining an authenticated session with a privileged target system, do not use the same browser to navigate to unfamiliar sites to perform other activities.').
 
+
 %'Android Activity Hijack'
 attack('Android Activity Hijack').
 prerequisites('Android Activity Hijack','The adversary must have previously installed the malicious application onto the Android device that will run in place of the trusted activity.').
@@ -286,12 +281,10 @@ related_weaknesses('Task Impersonation','Improper Restriction of Rendered UI Lay
 mitigations('Task Impersonation','The only known mitigation to this attack is to avoid installing the malicious application on the device.').
 
 
-
 %'Tapjacking'
 attack('Tapjacking').
 prerequisites('Tapjacking','This pattern of attack requires the ability to execute a malicious application on the user s device.').
 related_weaknesses('Tapjacking','Improper Restriction of Rendered UI Layers or Frames').
-
 
 
 %'Software Integrity Attack'
@@ -347,6 +340,7 @@ attack('Influence via Psychological Principles').
 prerequisites('Influence via Psychological Principles','The adversary must have the means and knowledge of how to communicate with the target in some manner.').
 mitigations('Influence via Psychological Principles','An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.').
 
+
 %'Obstruction'
 attack('Obstruction').
 parentOf('Obstruction','Physical Destruction of Device or Component').
@@ -354,13 +348,17 @@ parentOf('Obstruction','Route Disabling').
 parentOf('Obstruction','Jamming').
 parentOf('Obstruction','Blockage').
 
+
 %'Route Disabling'
 attack('Route Disabling').
 prerequisites('Route Disabling','The adversary requires knowledge of and access to network route.').
 
+
 %'Blockage'
 attack('Blockage').
-prerequisites('','This attack pattern requires knowledge of where important system resources are logically located as well as how they operate.').
+prerequisites('Blockage','This attack pattern requires knowledge of where important system resources are logically located as well as how they operate.').
+
+
 %'Pretexting'
 attack('Pretexting').
 parentOf('Pretexting','Harvesting Information via API Event Monitoring').
@@ -368,23 +366,26 @@ parentOf('Pretexting','Pretexting via Customer Service').
 parentOf('Pretexting','Pretexting via Tech Support').
 parentOf('Pretexting','Pretexting via Delivery Person').
 parentOf('Pretexting','Pretexting via Phone').
-
 prerequisites('Pretexting','The adversary must have the means and knowledge of how to communicate with the target in some manner.The adversary must have knowledge of the pretext that would influence the actions of the specific target.').
 mitigations('Pretexting','An organization should provide regular, robust cybersecurity training to its employees to prevent successful social engineering attacks.').
 
+
 %'Harvesting Information via API Event Monitoring'
 attack('Harvesting Information via API Event Monitoring').
-
 prerequisites('Harvesting Information via API Event Monitoring','The target software is utilizing application framework APIs').
 mitigations('Harvesting Information via API Event Monitoring','Leverage encryption techniques during information transactions so as to protect them from attack patterns of this kind.').
-
 related_weaknesses('Harvesting Information via API Event Monitoring','Missing Encryption of Sensitive Data').
 related_weaknesses('Harvesting Information via API Event Monitoring','Cleartext Transmission of Sensitive Information').
 related_weaknesses('Harvesting Information via API Event Monitoring','Unprotected Primary Channel').
 related_weaknesses('Harvesting Information via API Event Monitoring','Client-Side Enforcement of Server-Side Security').
 
+
 %'Pretexting via Customer Service'
 attack('Pretexting via Customer Service').
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %lista svih napada i lista svih mera
 napadiLista(N) :- findall(N1,attack(N1),N).
