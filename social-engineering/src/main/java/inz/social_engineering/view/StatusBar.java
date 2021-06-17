@@ -16,29 +16,29 @@ public class StatusBar extends JXStatusBar {
 
 	public StatusBar() {
 		this.fillConstraint = new JXStatusBar.Constraint(JXStatusBar.Constraint.ResizeBehavior.FILL);
-		initUserInfoLabel();
-		initDateLabel();
+		initUserInfoLabel(fillConstraint);
+		initDateLabel(fillConstraint);
 	}
 	
-	public void initDateLabel()
+	public void initDateLabel(JXStatusBar.Constraint constraint)
 	{	
 		this.dateLabel = new DateLabel();
-		this.dateLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 17));
+//		this.dateLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
 		this.add(this.dateLabel, this.fillConstraint);	
 	}
 	
-	public void initUserInfoLabel()
+	public void initUserInfoLabel(JXStatusBar.Constraint constraint)
 	{	
 		this.userInfoLabel = new JXLabel();
-		Korisnik doctor = AppSingleton.getInstance().getKorisnik();
+		Korisnik korisnik = AppSingleton.getInstance().getKorisnik();
 		StringBuilder msgBuilder = new StringBuilder();
 		msgBuilder.append("Korisnik: ");
-		//msgBuilder.append(doctor.getFirstName());
+		msgBuilder.append(korisnik.getFirstName());
 		msgBuilder.append(" ");
-		//msgBuilder.append(doctor.getLastName());
+		msgBuilder.append(korisnik.getLastName());
 		this.userInfoLabel.setText(msgBuilder.toString());
-		this.userInfoLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		this.add(this.userInfoLabel, this.fillConstraint);
+//		this.userInfoLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+		this.add(this.userInfoLabel, constraint);
 	}
 	
 }

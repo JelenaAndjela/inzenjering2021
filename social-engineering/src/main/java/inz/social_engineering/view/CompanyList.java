@@ -1,5 +1,8 @@
 package inz.social_engineering.view;
 
+
+import java.util.List;
+
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -10,14 +13,17 @@ import org.jdesktop.swingx.JXList;
 import inz.social_engineering.AppSingleton;
 import inz.social_engineering.model.Company;
 import inz.social_engineering.model.Korisnik;
+import inz.social_engineering.repository.CompanyRepository;
 
 public class CompanyList extends JXList{
 
 	private DefaultListModel<Company> companyListModel;
+	private CompanyRepository companyRepository;
 	
 	public CompanyList() {
 		super(true);
 		this.companyListModel = new DefaultListModel<Company>();
+		this.companyRepository = new CompanyRepository();
 		this.initModel();
 		this.setModel(this.companyListModel);
 		this.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
@@ -29,12 +35,18 @@ public class CompanyList extends JXList{
 
 	private void initModel() {
 		Korisnik korisnik = AppSingleton.getInstance().getKorisnik();
-	//	for (Company company : korisnik.getKompanije()) {
-	//		this.companyListModel.addElement(company);
-	//	}
+		for (Company company : korisnik.getKompanije()) {
+			this.companyListModel.addElement(company);
+		}
 		
 		this.companyListModel.addElement(new Company("Kompanija1"));
 		
+		
+		//find all test
+//		List<Company> companies = this.companyRepository.findAll();
+//		for(Company company : companies) {
+//			this.companyListModel.addElement(company);
+//		}
 		
 		this.addListSelectionListener(new ListSelectionListener() {
 

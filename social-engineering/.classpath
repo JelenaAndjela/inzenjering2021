@@ -29,5 +29,6 @@
 	<classpathentry kind="lib" path="lib/org-jdesktop-swingx.jar"/>
 	<classpathentry kind="lib" path="lib/swingx-1.6.jar"/>
 	<classpathentry kind="lib" path="lib/unbbayes-4.22.18.jar"/>
+	<classpathentry kind="lib" path="lib/jena-arq-4.1.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
