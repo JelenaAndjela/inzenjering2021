@@ -26,7 +26,7 @@ public class CompanyRepository extends AbstractRepository<Company>{
 		return null;
 	}
 
-	@Override
+
 	public List<Company> findAll() {
 		// TODO Auto-generated method stub
 		List<Company> companies = new ArrayList<Company>();
@@ -46,7 +46,7 @@ public class CompanyRepository extends AbstractRepository<Company>{
 		return companies;
 	}
 
-	@Override
+	
 	public Company save(Company entity) {
 		// TODO Auto-generated method stub
 		entity.setId(UUID.randomUUID());
