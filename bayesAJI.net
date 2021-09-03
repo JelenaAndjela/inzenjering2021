@@ -1,0 +1,920 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     tree = "(C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26,C27,C28,C29,C30,C31,C32,C33,C34,C35,C36,C37,C38,C39,C40,C41,C42,C43,C44,C45,C46,C47)";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node likelihood_of_attack
+{
+     label = "C1";
+     position = (154 21);
+     states = ("Low" "Medium" "High");
+}
+
+node typical_severity
+{
+     label = "C2";
+     position = (714 0);
+     states = ("Low" "Medium" "High" "Very High");
+}
+
+node skills_required
+{
+     label = "C3";
+     position = (1274 16);
+     states = ("low" "medium" "high");
+}
+
+node parametar_injection
+{
+     label = "C4";
+     position = (16 137);
+     states = ("yes" "no");
+}
+
+node argument_injection
+{
+     label = "C5";
+     position = (180 133);
+     states = ("yes" "no");
+}
+
+node command_delimiters
+{
+     label = "C6";
+     position = (266 126);
+     states = ("yes" "no");
+}
+
+node formal_string_injection
+{
+     label = "C7";
+     position = (366 124);
+     states = ("yes" "no");
+}
+
+node reflection_injection
+{
+     label = "C8";
+     position = (484 118);
+     states = ("yes" "no");
+}
+
+node flash_injection
+{
+     label = "C9";
+     position = (568 110);
+     states = ("yes" "no");
+}
+
+node information_elicitation
+{
+     label = "C10";
+     position = (669 103);
+     states = ("yes" "no");
+}
+
+node identity_spoofing
+{
+     label = "C11";
+     position = (813 106);
+     states = ("yes" "no");
+}
+
+node pharming
+{
+     label = "C12";
+     position = (932 111);
+     states = ("yes" "no");
+}
+
+node phishing
+{
+     label = "C13";
+     position = (1006 112);
+     states = ("yes" "no");
+}
+
+node spear_phishing
+{
+     label = "C14";
+     position = (1059 108);
+     states = ("yes" "no");
+}
+
+node mobile_phishing
+{
+     label = "C15";
+     position = (1147 110);
+     states = ("yes" "no");
+}
+
+node voice_phishing
+{
+     label = "C16";
+     position = (1255 109);
+     states = ("yes" "no");
+}
+
+node fake_the_source_of_data
+{
+     label = "C17";
+     position = (1341 100);
+     states = ("yes" "no");
+}
+
+node dns_rebinding
+{
+     label = "C18";
+     position = (119 200);
+     states = ("yes" "no");
+}
+
+node counterfeit_websites
+{
+     label = "C19";
+     position = (229 198);
+     states = ("yes" "no");
+}
+
+node counterfait_organizations
+{
+     label = "C20";
+     position = (361 205);
+     states = ("yes" "no");
+}
+
+node dns_spoofing
+{
+     label = "C21";
+     position = (512 185);
+     states = ("yes" "no");
+}
+
+node token_impersonaation
+{
+     label = "C22";
+     position = (608 189);
+     states = ("yes" "no");
+}
+
+node principal_spoof
+{
+     label = "C23";
+     position = (752 189);
+     states = ("yes" "no");
+}
+
+node cross_frame_scripting
+{
+     label = "C24";
+     position = (838 189);
+     states = ("yes" "no");
+}
+
+node terrestrial_jamming
+{
+     label = "C25";
+     position = (988 204);
+     states = ("yes" "no");
+}
+
+node signature_spoof
+{
+     label = "C26";
+     position = (1097 209);
+     states = ("yes" "no");
+}
+
+node resource_location_spoofing
+{
+     label = "C27";
+     position = (63 268);
+     states = ("yes" "no");
+}
+
+node redirect_access_to_libraries
+{
+     label = "C28";
+     position = (240 278);
+     states = ("yes" "no");
+}
+
+node establish_rougue_location
+{
+     label = "C29";
+     position = (414 282);
+     states = ("yes" "no");
+}
+
+node action_spoofing
+{
+     label = "C30";
+     position = (572 269);
+     states = ("yes" "no");
+}
+
+node clickjacking
+{
+     label = "C31";
+     position = (690 268);
+     states = ("yes" "no");
+}
+
+node android_activity_hijack
+{
+     label = "C32";
+     position = (764 278);
+     states = ("yes" "no");
+}
+
+node task_impersonation
+{
+     label = "C33";
+     position = (909 289);
+     states = ("yes" "no");
+}
+
+node tapjacking
+{
+     label = "C34";
+     position = (1043 279);
+     states = ("yes" "no");
+}
+
+node software_integrity_attack
+{
+     label = "C35";
+     position = (1152 272);
+     states = ("yes" "no");
+}
+
+node malicius_software_download
+{
+     label = "C36";
+     position = (1266 272);
+     states = ("yes" "no");
+}
+
+node malicius_human_behavior
+{
+     label = "C37";
+     position = (165 330);
+     states = ("yes" "no");
+}
+
+node influence_perception
+{
+     label = "C38";
+     position = (388 342);
+     states = ("yes" "no");
+}
+
+node target_influence_via_framing
+{
+     label = "C39";
+     position = (513 362);
+     states = ("yes" "no");
+}
+
+node influence_via_incentives
+{
+     label = "C40";
+     position = (705 377);
+     states = ("yes" "no");
+}
+
+node influence_via_psychological_principles
+{
+     label = "C41";
+     position = (819 412);
+     states = ("yes" "no");
+}
+
+node obstruction
+{
+     label = "C42";
+     position = (902 374);
+     states = ("yes" "no");
+}
+
+node route_disabiling
+{
+     label = "C43";
+     position = (956 358);
+     states = ("yes" "no");
+}
+
+node blockage
+{
+     label = "C44";
+     position = (1080 362);
+     states = ("yes" "no");
+}
+
+node harvest_information
+{
+     label = "C45";
+     position = (1149 343);
+     states = ("yes" "no");
+}
+
+node pretexting
+{
+     label = "C46";
+     position = (1259 331);
+     states = ("yes" "no");
+}
+
+node pretexting_via_customer_service
+{
+     label = "C47";
+     position = (1292 370);
+     states = ("yes" "no");
+}
+
+potential (likelihood_of_attack)
+{
+ data = ( 0.3333 0.3334 0.3333 );
+}
+
+potential (typical_severity)
+{
+ data = ( 0.25 0.25 0.25 0.25 );
+}
+
+potential (skills_required)
+{
+ data = ( 0.3333 0.3334 0.3333 );
+}
+
+potential (parametar_injection | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 1.0 0.5 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 1.0 0.5 )
+( 0.5 0.5 )));
+}
+
+potential (argument_injection | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.5 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.5 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.5 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.5 )));
+}
+
+potential (command_delimiters | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (formal_string_injection | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (reflection_injection | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (flash_injection | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (information_elicitation | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (identity_spoofing | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 )));
+}
+
+potential (pharming | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (phishing | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (spear_phishing | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (mobile_phishing | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (voice_phishing | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (fake_the_source_of_data | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (dns_rebinding | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (counterfeit_websites | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (counterfait_organizations | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (dns_spoofing)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (token_impersonaation | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (principal_spoof | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (cross_frame_scripting | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (terrestrial_jamming | typical_severity likelihood_of_attack)
+{
+ data = ((( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 )));
+}
+
+potential (signature_spoof)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (resource_location_spoofing | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 )));
+}
+
+potential (redirect_access_to_libraries | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (establish_rougue_location | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 )));
+}
+
+potential (action_spoofing | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (clickjacking | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 )));
+}
+
+potential (android_activity_hijack | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (task_impersonation | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 )));
+}
+
+potential (tapjacking | typical_severity likelihood_of_attack)
+{
+ data = ((( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 )));
+}
+
+potential (software_integrity_attack | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (malicius_software_download | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (malicius_human_behavior | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 )));
+}
+
+potential (influence_perception | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )
+( 1.0 0.0 )));
+}
+
+potential (target_influence_via_framing | typical_severity likelihood_of_attack)
+{
+ data = ((( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 )));
+}
+
+potential (influence_via_incentives | typical_severity likelihood_of_attack)
+{
+ data = ((( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 )));
+}
+
+potential (influence_via_psychological_principles | typical_severity likelihood_of_attack)
+{
+ data = ((( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 )));
+}
+
+potential (obstruction)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (route_disabiling | typical_severity likelihood_of_attack)
+{
+ data = ((( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 ))
+(( 1.0 0.0 )
+( 0.5 0.5 )
+( 0.5 0.5 )));
+}
+
+potential (blockage | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 )));
+}
+
+potential (harvest_information | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (pretexting | typical_severity likelihood_of_attack)
+{
+ data = ((( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.5 0.5 )
+( 1.0 0.0 )
+( 0.5 0.5 )));
+}
+
+potential (pretexting_via_customer_service | typical_severity)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
