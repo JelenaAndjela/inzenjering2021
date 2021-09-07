@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="inzenjering1">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/inzenjering/out/artifacts/inzenjering_jar/inzenjering.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
