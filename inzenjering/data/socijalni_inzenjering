@@ -1,0 +1,402 @@
+%'Parameter Injection'
+attack('Social Engineering').
+attack('Parameter Injection').
+parentOf('Parameter Injection','	Argument Injection').
+parentOf('Parameter Injection','	Command Delimiters').
+parentOf('Parameter Injection','	Email Injection').
+parentOf('Parameter Injection','	Format String Injection').
+parentOf('Parameter Injection','	Reflection Injection').
+parentOf('Parameter Injection','	Flash Injection').
+
+prerequisites('Parameter Injection','The target application must use a parameter encoding where separators and parameter identifiers are expressed in regular text.').
+mitigations('Parameter Injection','Implement an audit log written to a separate host.').
+related_weaknesses('Parameter Injection','Improper Neutralization of Argument Delimiters in a Command').
+
+%'Argument Injection'
+attack('Argument Injection').
+
+
+prerequisites('Argument Injection','Target software fails to strip all user-supplied input of any content that could cause the shell to perform unexpected actions.').
+
+mitigations('Argument Injection','Do not program input values directly on command shell, instead treat user input as guilty until proven innocent.').
+mitigations('Argument Injection','Limit program privileges, so if metacharacters or other methods circumvent program input validation routines and shell access is attained then it is not running under a privileged account.').
+mitigations('Argument Injection','Implement an audit log that is written to a separate host, in the event of a compromise the audit log may be able to provide evidence and details of the compromise.').
+
+
+related_weaknesses('Argument Injection','Improper Neutralization of Special Elements in Output Used by a Downstream Component').
+related_weaknesses('Argument Injection','Improper Neutralization of Expression/Command Delimiters').
+related_weaknesses('Argument Injection','Incomplete List of Disallowed Inputs').
+related_weaknesses('Argument Injection','Improper Neutralization of Special Elements used in an OS Command').
+related_weaknesses('Argument Injection','	Incorrect Regular Expression').
+related_weaknesses('Argument Injection','OWASP Top Ten 2007 Category A2 - Injection Flaws').
+related_weaknesses('Argument Injection','Incorrect Comparison').
+
+
+%'Command Delimiters'
+attack('Command Delimiters').
+
+prerequisites('Command Delimiters','Software s input validation or filtering must not detect and block presence of additional malicious command').
+
+mitigations('Command Delimiters','Perform allowlist validation against a positive specification for command length, type, and parameters').
+mitigations('Command Delimiters','Limit program privileges, so if commands circumvent program input validation or filter routines then commands do not running under a privileged account').
+mitigations('Command Delimiters',' Perform input validation for all remote content').
+mitigations('Command Delimiters','Use type conversions such as JDBC prepared statements').
+
+
+
+related_weaknesses('Command Delimiters','Improper Neutralization of Expression/Command Delimiters').
+related_weaknesses('Command Delimiters','Improper Neutralization of Special Elements used in a Command').
+related_weaknesses('Command Delimiters','Incomplete List of Disallowed Inputs').
+related_weaknesses('Command Delimiters','Improper Neutralization of Special Elements used in an OS Command').
+related_weaknesses('Command Delimiters','Incorrect Regular Expression').
+related_weaknesses('Command Delimiters','Improper Neutralization of CRLF Sequences').
+related_weaknesses('Command Delimiters','Improper Neutralization of Delimiters').
+related_weaknesses('Command Delimiters','Failure to Sanitize Paired Delimiters').
+related_weaknesses('Command Delimiters','Improper Neutralization of Special Elements').
+related_weaknesses('Command Delimiters','Improper Neutralization of Variable Name Delimiters').
+related_weaknesses('Command Delimiters','Incorrect Comparison').
+related_weaknesses('Command Delimiters','OWASP Top Ten 2007 Category A2 - Injection Flaws').
+%'Email Injection'
+attack('Email Injection').
+
+prerequisites('Email Injection','The target application must allow the user to send email to some recipient, to specify the content at least one header field in the message, and must fail to sanitize against the injection of command separators.').
+related_weaknesses('Email Injection','Improper Neutralization of Escape, Meta, or Control Sequences').
+
+%'Format String Injection'
+attack('Format String Injection').
+
+prerequisites('Format String Injection','The target application must accept a strings as user input, fail to sanitize string formatting characters in the user input, and process this string using functions that interpret string formatting characters.').
+
+mitigations('Format String Injection',' Limit the usage of formatting string functions.').
+mitigations('Format String Injection','Strong input validation - All user-controllable input must be validated and filtered for illegal formatting characters.').
+
+related_weaknesses('Format String Injection','Use of Externally-Controlled Format String').
+related_weaknesses('Format String Injection','Improper Input Validation').
+related_weaknesses('Format String Injection','Improper Neutralization of Special Elements in Output Used by a Downstream Component').
+related_weaknesses('Format String Injection','String Errors').
+
+%'Reflection Injection'
+attack('Reflection Injection').
+
+prerequisites('Reflection Injection','The target application must utilize reflection libraries and allow users to directly control the parameters to these methods. If the adversary can host classes where the target can invoke them, more powerful variants of this attack are possible.').
+
+%'Flash Injection'
+attack('Flash Injection').
+
+prerequisites('Flash Injection','The target must be capable of running Flash applications. In some cases, the victim must follow an attacker-supplied link.').
+mitigations('Flash Injection','Remove sensitive information such as user name and password in the SWF file.').
+mitigations('Flash Injection','Use validation on both client and server side.').
+mitigations('Flash Injection','Remove debug information.').
+mitigations('Flash Injection','Use SSL when loading external data').
+mitigations('Flash Injection','Use crossdomain.xml file to allow the application domain to load stuff or the SWF file called by other domain.').
+
+related_weaknesses('Flash Injection','Improper Input Validation').
+related_weaknesses('Flash Injection','Incomplete List of Disallowed Inputs').
+related_weaknesses('Flash Injection','Incorrect Comparison').
+
+
+%'Information Elicitation'
+attack('Information Elicitation').
+parentOf('Information Elicitation','Pretexting').
+
+%'Identity Spoofing').
+parentOf('Identity Spoofing','Pharming').
+parentOf('Identity Spoofing','Phishing').
+parentOf('Identity Spoofing','Fake the Source of Data').
+parentOf('Identity Spoofing','Principal Spoof').
+parentOf('Identity Spoofing','Signature Spoof').
+prerequisites('Identity Spoofing','The identity associated with the message or resource must be removable or modifiable in an undetectable way').
+mitigations('Identity Spoofing','Multi-factor authentication').
+related_weaknesses('Identity Spoofing','Improper Authentication').
+
+
+%'Pharming'
+attack('Pharming').
+prerequisites('Pharming','Vulnerable DNS software or improperly protected hosts file or router that can be poisoned').
+prerequisites('Pharming','A website that handles sensitive information but does not use a secure connection and a certificate that is valid is also prone to pharming').
+mitigations('Pharming','Known vulnerabilities in DNS or router software or in operating systems must be patched as soon as a fix has been released and tested').
+mitigations('Pharming','All sensitive information must be handled over a secure connection').
+mitigations('Pharming','End users must ensure that they provide sensitive information only to websites that they trust, over a secure connection with a valid certificate issued by a well-known certificate authority').
+related_weaknesses('Pharming','Origin Validation Error').
+related_weaknesses('Pharming','Reliance on Reverse DNS Resolution for a Security-Critical Action').
+
+%'Phishing'
+attack('Phishing').
+parentOf('Phishing','Spear Phishing').
+parentOf('Phishing','Mobile Phishing').
+parentOf('Phishing','Voice Phishing').
+prerequisites('Phishing','An attacker needs to have a way to initiate contact with the victim').
+prerequisites('Phishing','An attacker needs to correctly guess the entity with which the victim does business and impersonate it').
+prerequisites('Phishing','An attacker needs to have a sufficiently compelling call to action to prompt the user to take action').
+prerequisites('Phishing','The replicated website needs to look extremely similar to the original website and the URL used to get to that website needs to look like the real URL of the said business entity').
+mitigations('Phishing','Do not follow any links that you receive within your e-mails and certainly do not input any login credentials on the page that they take you too').
+mitigations('Phishing','Never reply to any e-mails that ask you to provide sensitive information of any kind').
+
+%'Spear Phishing'
+attack('Spear Phishing').
+prerequisites('Spear Phishing','None').
+mitigations('Spear Phishing','Do not follow any links that you receive within your e-mails and certainly do not input any login credentials on the page that they take you too').
+mitigations('Spear Phishing','Never reply to any e-mails that ask you to provide sensitive information of any kind').
+
+%'Mobile Phishing'
+attack('Mobile Phishing').
+prerequisites('Mobile Phishing','An adversary needs mobile phone numbers to initiate contact with the victim').
+prerequisites('Mobile Phishing','An adversary needs to correctly guess the entity with which the victim does business and impersonate it').
+prerequisites('Mobile Phishing','An adversary needs to have a sufficiently compelling call to action to prompt the user to take action').
+prerequisites('Mobile Phishing','The replicated website needs to look extremely similar to the original website and the URL used to get to that website needs to look like the real URL of the said business entity').
+mitigations('Mobile Phishing','Do not follow any links that you receive within text messages and do not input any login credentials on the page that they take you too').
+mitigations('Mobile Phishing','Never reply to any text messages that ask you to provide sensitive information of any kind').
+
+%'Voice Phishing'
+attack('Voice Phishing').
+prerequisites('Voice Phishing','An adversary needs phone numbers to initiate contact with the victim, in addition to a legitimate-looking telephone number to call the victim from').
+prerequisites('Voice Phishing','An adversary needs to correctly guess the entity with which the victim does business and impersonate it').
+prerequisites('Voice Phishing','An adversary needs to have a sufficiently compelling call to action to prompt the user to take action').
+prerequisites('Voice Phishing','If passively conducting this attack via a spoofed website, replicated website needs to look extremely similar to the original website and the URL used to get to that website needs to look like the real URL of the said business entity').
+mitigations('Voice Phishing','Do not accept calls from unknown numbers or from numbers that may be flagged as spam').
+mitigations('Voice Phishing','Do not call numbers that appear on-screen after being unexpectedly redirected to potentially malicious websites').
+mitigations('Voice Phishing','Do not provide sensitive information over voice calls that are not legitimately initiated').
+
+%'Fake the Source of Data'
+attack('Fake the Source of Data').
+parentOf('Fake the Source of Data','DNS Rebinding').
+parentOf('Fake the Source of Data','Counterfeit Websites').
+parentOf('Fake the Source of Data','Counterfeit Organizations').
+parentOf('Fake the Source of Data','DNS Spoofing').
+parentOf('Fake the Source of Data','Token Impersonation').
+prerequisites('Fake the Source of Data','This attack is only applicable when a vulnerable entity associates data or services with an identity').
+related_weaknesses('Fake the Source of Data','Improper Authentication').
+
+%'DNS Rebinding'
+attack('DNS Rebinding').
+prerequisites('DNS Rebinding','The target browser must access content server from the adversary controlled DNS name').
+mitigations('DNS Rebinding','IP Pinning causes browsers to record the IP address to which a given name resolves and continue using this address regardless of the TTL set in the DNS response').
+mitigations('DNS Rebinding','Reject HTTP request with a malicious Host header').
+mitigations('DNS Rebinding','Employ DNS resolvers that prevent external names from resolving to internal addresses').
+related_weaknesses('DNS Rebinding','Reliance on Reverse DNS Resolution for a Security-Critical Action').
+
+%'Counterfeit Websites'
+attack('Counterfeit Websites').
+prerequisites('Counterfeit Websites','None').
+
+%'Counterfeit Organizations'
+attack('Counterfeit Organizations').
+prerequisites('Counterfeit Organizations','None').
+
+%'DNS Spoofing'
+attack('DNS Spoofing').
+prerequisites('DNS Spoofing','On/In Path Device').
+mitigations('DNS Spoofing','Avoid dependence on DNS').
+mitigations('DNS Spoofing','Include "hosts file"/IP address in the application').
+mitigations('DNS Spoofing','Utilize a .onion domain with Tor support').
+mitigations('DNS Spoofing','DNSSEC').
+mitigations('DNS Spoofing','DNS-hold-open').
+
+%'Token Impersonation'
+attack('Token Impersonation').
+prerequisites('Token Impersonation','This pattern of attack is only applicable when a downstream user leverages tokens to verify identity, and then takes action based on that identity').
+related_weaknesses('Token Impersonation','Improper Authentication').
+
+%'Principal Spoof'
+attack('Principal Spoof').
+parentOf('Principal Spoof','Cross Frame Scripting (XFS)').
+parentOf('Principal Spoof','Terrestrial Jamming').
+prerequisites('Principal Spoof','The target must associate data or activities with a person s identity and the adversary must be able to modify this identity without detection').
+
+%'Cross Frame Scripting (XFS)'
+attack('Cross Frame Scripting (XFS)').
+prerequisites('Cross Frame Scripting (XFS)','The user s browser must have vulnerabilities in its implementation of the same-origin policy').
+mitigations('Cross Frame Scripting (XFS)','Avoid clicking on untrusted links').
+mitigations('Cross Frame Scripting (XFS)','Employ techniques such as frame busting, which is a method by which developers aim to prevent their site being loaded within a frame').
+
+%'Terrestrial Jamming'
+attack('Terrestrial Jamming').
+
+%'Signature Spoof'
+attack('Signature Spoof').
+prerequisites('Signature Spoof','The victim or victim system is dependent upon a cryptographic signature-based verification system for validation of one or more security events or actions').
+prerequisites('Signature Spoof','The validation can be bypassed via an attacker-provided signature that makes it appear that the legitimate authoritative or reputable source provided the signature').
+related_weaknesses('Signature Spoof','Improper Input Validation').
+related_weaknesses('Signature Spoof','Use of a Broken or Risky Cryptographic Algorithm').
+related_weaknesses('Signature Spoof','Authentication Bypass by Spoofing').
+
+%'Resource Location Spoofing'
+attack('Resource Location Spoofing').
+parentOf('Resource Location Spoofing','Redirect Access to Libraries').
+parentOf('Resource Location Spoofing','Establish Rogue Location').
+prerequisites('Resource Location Spoofing','None').
+related_weaknesses('Resource Location Spoofing','').
+mitigations('Resource Location Spoofing','Monitor network activity to detect any anomalous or unauthorized communication exchanges').
+
+
+%'Redirect Access to Libraries'
+attack('Redirect Access to Libraries').
+prerequisites('Redirect Access to Libraries','The target must utilize external libraries and must fail to verify the integrity of these libraries before using them.').
+related_weaknesses('Redirect Access to Libraries','Use of Incorrectly-Resolved Name or Reference').
+mitigations('Redirect Access to Libraries','Restrict the permission to modify the entries in the configuration file.').
+mitigations('Redirect Access to Libraries','Check the integrity of the dynamically linked libraries before use them.').
+mitigations('Redirect Access to Libraries','Use obfuscation and other techniques to prevent reverse engineering the libraries.').
+
+
+%'Establish Rogue Location'
+attack('Establish Rogue Location').
+prerequisites('Establish Rogue Location','A resource is expected to available to the user.').
+related_weaknesses('Establish Rogue Location','Exposure of Sensitive Information to an Unauthorized Actor').
+
+
+
+%'Action Spoofing'
+attack('Action Spoofing').
+parentOf('Action Spoofing','Clickjacking').
+parentOf('Action Spoofing','Android Activity Hijack').
+parentOf('Action Spoofing','Task Impersonation').
+parentOf('Action Spoofing','Tapjacking').
+prerequisites('Action Spoofing','The adversary must convince the victim into performing the decoy action.').
+prerequisites('Action Spoofing','The adversary must have the means to control a user s interface to present them with a decoy action as well as the actual malicious action.').
+mitigations('Action Spoofing','Avoid interacting with suspicious sites or clicking suspicious links.').
+mitigations('Action Spoofing','An organization should provide regular, robust cybersecurity training to its employees.').
+
+
+%'Clickjacking'
+attack('Clickjacking').
+prerequisites('Clickjacking','The victim is communicating with the target application via a web based UI and not a thick client').
+prerequisites('Clickjacking','The victim s browser security policies allow at least one of the following JavaScript, Flash, iFrames, ActiveX, or CSS.').
+prerequisites('Clickjacking','The victim uses a modern browser that supports UI elements like clickable buttons (i.e. not using an old text only browser)').
+prerequisites('Clickjacking','The victim uses a modern browser that supports UI elements like clickable buttons (i.e. not using an old text only browser)').
+prerequisites('Clickjacking','The victim uses a modern browser that supports UI elements like clickable buttons (i.e. not using an old text only browser)').
+related_weaknesses('Clickjacking','Improper Restriction of Rendered UI Layers or Frames').
+mitigations('Clickjacking','If using the Firefox browser, use the NoScript plug-in that will help forbid iFrames.').
+mitigations('Clickjacking','Turn off JavaScript, Flash and disable CSS.').
+mitigations('Clickjacking','When maintaining an authenticated session with a privileged target system, do not use the same browser to navigate to unfamiliar sites to perform other activities.').
+
+%'Android Activity Hijack'
+attack('Android Activity Hijack').
+prerequisites('Android Activity Hijack','The adversary must have previously installed the malicious application onto the Android device that will run in place of the trusted activity.').
+related_weaknesses('Android Activity Hijack','Improper Restriction of Communication Channel to Intended Endpoints').
+mitigations('Android Activity Hijack','To mitigate this type of an attack, explicit intents should be used whenever sensitive data is being sent. ').
+mitigations('Android Activity Hijack','Never use implicit intents for inter-application communication.').
+
+
+%'Task Impersonation'
+attack('Task Impersonation').
+prerequisites('Task Impersonation','The adversary must already have access to the target system via some means.').
+prerequisites('Task Impersonation','A legitimate task must exist that an adversary can impersonate to glean credentials.').
+prerequisites('Task Impersonation','The user s privileges allow them to execute certain tasks with elevated privileges.').
+related_weaknesses('Task Impersonation','Improper Restriction of Rendered UI Layers or Frames').
+mitigations('Task Impersonation','The only known mitigation to this attack is to avoid installing the malicious application on the device.').
+
+
+
+%'Tapjacking'
+attack('Tapjacking').
+prerequisites('Tapjacking','This pattern of attack requires the ability to execute a malicious application on the user s device.').
+related_weaknesses('Tapjacking','Improper Restriction of Rendered UI Layers or Frames').
+
+
+
+%'Software Integrity Attack'
+attack('Software Integrity Attack').
+parentOf('Software Integrity Attack','Malicious Software Download').
+parentOf('Software Integrity Attack','Malicious Software Update').
+related_weaknesses('Software Integrity Attack','Download of Code Without Integrity Check').
+
+
+%'Malicious Software Download'
+attack('Malicious Software Download').
+related_weaknesses('Malicious Software Download','Download of Code Without Integrity Check').
+
+
+%'Malicious Software Update'
+attack('Malicious Software Update').
+related_weaknesses('Malicious Software Update','Download of Code Without Integrity Check').
+mitigations('Malicious Software Update','Validate software updates before installing.').
+
+
+%'Manipulate Human Behavior'
+attack('Manipulate Human Behavior').
+parentOf('Manipulate Human Behavior','Pretexting').
+parentOf('Manipulate Human Behavior','Influence Perception').
+parentOf('Manipulate Human Behavior','Target Influence via Framing').
+parentOf('Manipulate Human Behavior','Influence via Incentives').
+parentOf('Manipulate Human Behavior','Influence via Psychological Principles').
+prerequisites('Manipulate Human Behavior','The adversary must have the means and knowledge of how to communicate with the target in some manner.').
+mitigations('Manipulate Human Behavior','An organization should provide regular, robust cybersecurity training to its employees to prevent successful social engineering attacks.').
+
+
+%'Influence Perception'
+attack('Influence Perception').
+prerequisites('Influence Perception','The adversary must have the means and knowledge of how to communicate with the target in some manner.').
+mitigations('Influence Perception','An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.').
+
+
+%'Target Influence via Framing'
+attack('Target Influence via Framing').
+prerequisites('Target Influence via Framing','The adversary must have the means and knowledge of how to communicate with the target in some manner.').
+mitigations('Target Influence via Framing','An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.').
+mitigations('Target Influence via Framing','Avoid sharing unnecessary information during interactions beyond what is absolutely required for effective communication.').
+
+
+%'Influence via Incentives'
+attack('Influence via Incentives').
+prerequisites('Influence via Incentives','The adversary must have the means and knowledge of how to communicate with the target in some manner.').
+mitigations('Influence via Incentives','An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.').
+
+
+%'Influence via Psychological Principles'
+attack('Influence via Psychological Principles').
+prerequisites('Influence via Psychological Principles','The adversary must have the means and knowledge of how to communicate with the target in some manner.').
+mitigations('Influence via Psychological Principles','An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.').
+
+%'Obstruction'
+attack('Obstruction').
+parentOf('Obstruction','Physical Destruction of Device or Component').
+parentOf('Obstruction','Route Disabling').
+parentOf('Obstruction','Jamming').
+parentOf('Obstruction','Blockage').
+
+%'Route Disabling'
+attack('Route Disabling').
+prerequisites('Route Disabling','The adversary requires knowledge of and access to network route.').
+
+%'Blockage'
+attack('Blockage').
+prerequisites('','This attack pattern requires knowledge of where important system resources are logically located as well as how they operate.').
+%'Pretexting'
+attack('Pretexting').
+parentOf('Pretexting','Harvesting Information via API Event Monitoring').
+parentOf('Pretexting','Pretexting via Customer Service').
+parentOf('Pretexting','Pretexting via Tech Support').
+parentOf('Pretexting','Pretexting via Delivery Person').
+parentOf('Pretexting','Pretexting via Phone').
+
+prerequisites('Pretexting','The adversary must have the means and knowledge of how to communicate with the target in some manner.The adversary must have knowledge of the pretext that would influence the actions of the specific target.').
+mitigations('Pretexting','An organization should provide regular, robust cybersecurity training to its employees to prevent successful social engineering attacks.').
+
+%'Harvesting Information via API Event Monitoring'
+attack('Harvesting Information via API Event Monitoring').
+
+prerequisites('Harvesting Information via API Event Monitoring','The target software is utilizing application framework APIs').
+mitigations('Harvesting Information via API Event Monitoring','Leverage encryption techniques during information transactions so as to protect them from attack patterns of this kind.').
+
+related_weaknesses('Harvesting Information via API Event Monitoring','Missing Encryption of Sensitive Data').
+related_weaknesses('Harvesting Information via API Event Monitoring','Cleartext Transmission of Sensitive Information').
+related_weaknesses('Harvesting Information via API Event Monitoring','Unprotected Primary Channel').
+related_weaknesses('Harvesting Information via API Event Monitoring','Client-Side Enforcement of Server-Side Security').
+
+%'Pretexting via Customer Service'
+attack('Pretexting via Customer Service').
+
+
+napadiLista(N) :- findall(N1,attack(N1),N).
+mereLista(M) :- findall(M1,mitigations(N,M1),M).
+
+%mere da mi izbaci
+%uneti u prolog
+%mere('Parameter Injection',M)
+mere(N,M) :- findall(M1,mitigations(N,M1),M).
+
+
+%napadi za meru
+%uneti u prolog
+%napadi('Leverage encryption techniques during information transactions so as to protect them from attack patterns of this kind.',N)
+napadi(M,N) :- findall(N1,mitigations(N1,M),N).
