@@ -1,7 +1,9 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+
 import java.util.List;
+
 
 public class AttackTable {
 
@@ -12,7 +14,6 @@ public class AttackTable {
         panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
 
 
-
           String[] columnNames = {"Name",
                 "Likelihood of attack",
                   "Mitigations",
@@ -20,7 +21,6 @@ public class AttackTable {
                   "Skills required",
                 "Typical severity"
                 };
-
 
         String[][] data = new String[attackList.size()][columnNames.length];
         for(int i=0; i<attackList.size(); i++){
@@ -35,6 +35,8 @@ public class AttackTable {
         DefaultTableModel dm = new DefaultTableModel();
         dm.setDataVector(data, columnNames);
         JTable table = new JTable(dm);
+        //table.setBounds(30, 40, 200, 300);
+
 
 
         // adding it to JScrollPane
@@ -54,12 +56,11 @@ public class AttackTable {
         table.setBounds(30, 40, 200, 300);
         
 
+        //frame.setSize(800, 400);
         frame.setTitle("List of attacks");
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-
-
 
 }

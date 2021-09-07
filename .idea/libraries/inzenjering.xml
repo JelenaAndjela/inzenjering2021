@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="inzenjering">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/inzenjering/unbbayes-4.22.18.jar!/" />
+      <root url="jar://$PROJECT_DIR$/inzenjering/JTattoo-1.6.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/inzenjering/jFuzzyLogic.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -7,6 +7,7 @@ public class Attack {
 	public String prerequisites;
 	public String mitigations;
 
+
 	public Attack(String name, String likelihood_of_attack,String mitigations,String prerequisites, String skills_required,String typical_severity ) {
 		this.name = name;
 		this.likelihood_of_attack = likelihood_of_attack;

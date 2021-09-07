@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/inzenjering/lib/jpf-1.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/inzenjering/lib/unbbayes-4.22.18.jar!/" />
+      <root url="jar://$PROJECT_DIR$/inzenjering/lib/jCOLIBRI-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/inzenjering/lib/log4j-api-2.11.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/inzenjering/lib/commons-logging-1.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/inzenjering/lib/fuseki-server.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

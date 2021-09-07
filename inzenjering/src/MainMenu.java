@@ -1,25 +1,99 @@
 import javax.swing.*;
+import CaseBasedReasoning.CsvConnector;
+import CaseBasedReasoning.Model;
+import ucm.gaia.jcolibri.casebase.LinealCaseBase;
+import ucm.gaia.jcolibri.cbraplications.StandardCBRApplication;
+import ucm.gaia.jcolibri.cbrcore.Attribute;
+import ucm.gaia.jcolibri.cbrcore.CBRCase;
+import ucm.gaia.jcolibri.cbrcore.CBRCaseBase;
+import ucm.gaia.jcolibri.cbrcore.CBRQuery;
+import ucm.gaia.jcolibri.cbrcore.Connector;
+import ucm.gaia.jcolibri.exception.ExecutionException;
+import ucm.gaia.jcolibri.method.retrieve.RetrievalResult;
+import ucm.gaia.jcolibri.method.retrieve.NNretrieval.NNConfig;
+import ucm.gaia.jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
+import ucm.gaia.jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
+import ucm.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase;
+import ucm.gaia.jcolibri.method.retrieve.selection.SelectCases;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Collection;
 
-
-public class MainMenu  {
-
+public class MainMenu implements StandardCBRApplication {
+	
+	
+	Connector _connector;  /** Connector object */
+	CBRCaseBase _caseBase;  /** CaseBase object */
+	static CsvConnector ccc=new CsvConnector();
+	public static ArrayList<Model> attacks;
 	public static JPanel panel;
+	NNConfig simConfig;  /** KNN configuration */
 	public static JFrame frame;
 	
 	public static ArrayList<String> res=new ArrayList<String>();
 
+	public void configure() throws ExecutionException {
+		_connector =  new CsvConnector();
+		
+		_caseBase = new LinealCaseBase();  // Create a Lineal case base for in-memory organization
 	
+		
+		simConfig = new NNConfig(); // KNN configuration
+		simConfig.setDescriptionSimFunction(new Average());  // global similarity function = average
+
+
+		simConfig.addMapping(new Attribute("likelihood", Model.class), new EqualsStringIgnoreCase());
+		simConfig.addMapping(new Attribute("severity", Model.class), new EqualsStringIgnoreCase());
+		simConfig.addMapping(new Attribute("skills", Model.class), new EqualsStringIgnoreCase());
+		simConfig.addMapping(new Attribute("prerequisites", Model.class), new EqualsStringIgnoreCase());
+		//simConfig.addMapping(new Attribute("mitigations", Model.class), new EqualsStringIgnoreCase());
+		System.out.println(" sim conffig  "+simConfig);
+
+	}
+	public void cycle(CBRQuery query) throws ExecutionException {
+		Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(_caseBase.getCases(), query, simConfig);
+		eval = SelectCases.selectTopKRR(eval, 5);
+		System.out.println("Retrieved cases:");
+
+
+		if(res.size()==0) {
+			
+		}else {
+			res.clear();
+		}
+		
+		for (RetrievalResult nse : eval) {		
+	//		System.out.println(nse.get_case().getDescription() + " -> " + nse.getEval());
+		    res.add(nse.get_case().getDescription() + " -> " + nse.getEval());
+		}
+	}
+
+	public void postCycle() throws ExecutionException {
+		
+	}
+	public CBRCaseBase preCycle() throws ExecutionException {
+		_caseBase.init(_connector);
+		java.util.Collection<CBRCase> cases = _caseBase.getCases();
+		for (CBRCase c: cases)
+		System.out.println("blaaaa "+ c.getDescription().toString());
+		
+		System.out.println("ajdeee");
+		return _caseBase;
+	}
+
     public static void main (String[] args){
 
         try {
+
             UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
 
         } catch(Exception ignored){
             System.out.println("Look and feel error");
         }
-
 
         GridLayout gl = new GridLayout(12,0);
         JFrame frame = new JFrame();
@@ -35,13 +109,35 @@ public class MainMenu  {
 
         JButton fuzzy = new JButton("Risk calculation(Fuzzy)");
         JButton bayes = new JButton("Classification(Bayes)");
+
         JButton register = new JButton("Register new attack");
-        JButton viewAll = new JButton("View all attacks");
+        register.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Registration();
+            }
+        });
+        JButton viewAll = new JButton("View all attacks"); // ovde ce biti i izmena postojecih napada
+        viewAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                List<Attack> attacks = new ArrayList<>();
+					attacks =	RemoteDatabase.selectAllQuery();
+                new AttackTable(attacks);
+            }
+        });
         JButton cbr = new JButton("View similarity");
-        JButton  mitigations= new JButton("View mitigations");
+        cbr.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                List<Attack> attacks = RemoteDatabase.selectAllQuery();
+                new CbrTable(attacks);
+            }
+        });
+        JButton  mitigations= new JButton("View mitigations"); 
 
         fuzzy.setFont(new Font("Arial", Font.PLAIN, 18));
-       panel.add(fuzzy);
+        panel.add(fuzzy);
         panel.add(prazno1);
         bayes.setFont(new Font("Arial", Font.PLAIN, 18));
         panel.add(bayes);
