@@ -137,8 +137,9 @@ public class MainMenu implements StandardCBRApplication {
 
         JButton fuzzy = new JButton("Fuzzy");
         JButton bayes = new JButton("Bayes");
+        
 
-            JButton register = new JButton("Add new attack");
+        JButton register = new JButton("Add new attack");
         register.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -164,7 +165,14 @@ public class MainMenu implements StandardCBRApplication {
             }
         });
         JButton  mitigations= new JButton("View mitigations"); 
+        mitigations.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                List<Attack> attacks = RemoteDatabase.selectAllQuery();
+                new MitigationsTable(attacks);
 
+            }
+        });
         fuzzy.setFont(new Font("Arial", Font.PLAIN, 18));
         panel.add(fuzzy);
         panel.add(prazno1);
