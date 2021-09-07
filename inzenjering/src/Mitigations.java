@@ -6,9 +6,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import CaseBasedReasoning.Model;
-import ucm.gaia.jcolibri.cbraplications.StandardCBRApplication;
-import ucm.gaia.jcolibri.cbrcore.CBRQuery;
 
 public class Mitigations {
 	

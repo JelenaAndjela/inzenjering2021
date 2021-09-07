@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Edit {
 
+
+
     public Edit(Attack attack){
         RemoteDatabase.deleteQuery(attack);
         //GridBagLayout layout = new GridBagLayout();
@@ -236,8 +238,8 @@ public class Edit {
                 if(textName.getText().length()!=0 && textMitigaiton.getText().length()!=0){
 
                     Attack attack = new Attack(textName.getText(),
-                            textMitigaiton.getText(),
                             likelihood.getSelectedItem().toString(),
+                            textMitigaiton.getText(),
                             comboPrerequisites.getSelectedItem().toString(),
                             comboSkills.getSelectedItem().toString(),
                             typical_severity.getSelectedItem().toString());

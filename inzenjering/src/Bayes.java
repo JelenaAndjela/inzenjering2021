@@ -19,7 +19,6 @@ import unbbayes.util.extension.bn.inference.IInferenceAlgorithm;
 
 public class Bayes {
 
-
     private static int likelihood_of_attack = 0;
     private static int typical_severity = 0;
     private static int skills_required = 0;
@@ -31,6 +30,9 @@ public class Bayes {
     private static int download_free_content = 0;
     private static int server_version = 0;
     private static int vaidation = 0;
+ /*   private static int small_company = 0;
+    private static int installing_malicious_software = 0;
+    private static int poor_data_storage = 0;*/
 
 
     public ProbabilisticNetwork load() {

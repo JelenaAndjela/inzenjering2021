@@ -1,8 +1,4 @@
-import org.apache.jena.base.Sys;
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
@@ -34,14 +30,9 @@ public class RemoteDatabase {
                 + "}";
         System.out.println(insertString);
 
-        System.out.println("ovo prodje 1");
         UpdateRequest updateRequest = UpdateFactory.create(insertString);
-        System.out.println("ovo prodje 2");
         UpdateProcessor updateProcessor = UpdateExecutionFactory.createRemote(updateRequest, UPDATE_URL);
-        System.out.println("ovo prodje 3");
         updateProcessor.execute();
-        System.out.println("ovo prodje 4");
-
    }
 
     public static void deleteQuery(Attack attack) {

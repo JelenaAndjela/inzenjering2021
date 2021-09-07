@@ -5,16 +5,6 @@ import ucm.gaia.jcolibri.cbrcore.CaseComponent;
 
 public class Model implements CaseComponent{
 
-	//Name,Risk,Severity,Scope,Impact,Skills Required,Prerequisites,Mitigations
-	//#Name,Likelihood Of Attack,Typical Severity,Prerequisites,Skills Required,Mitigations
-	/*private String name;
-	private String risk;
-	private String scope;
-	private String severity;
-	private String impact;
-	private String skills;
-	private String prerequisites;
-	private String mitigations;*/
 
 	private String name;
 	private String likelihood;

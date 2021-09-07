@@ -1,12 +1,11 @@
 public class Attack {
-
 	public String name;
 	public String likelihood_of_attack;
 	public String typical_severity;
 	public String skills_required;
 	public String prerequisites;
 	public String mitigations;
-
+	
 
 	public Attack(String name, String likelihood_of_attack,String mitigations,String prerequisites, String skills_required,String typical_severity ) {
 		this.name = name;

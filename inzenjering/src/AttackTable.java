@@ -17,7 +17,7 @@ public class AttackTable {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
-        
+
 
         String[] columnNames = {"Name",
                 "Likelihood of attack",

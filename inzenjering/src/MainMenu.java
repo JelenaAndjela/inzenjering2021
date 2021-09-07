@@ -8,18 +8,13 @@ import ucm.gaia.jcolibri.cbrcore.Attribute;
 import ucm.gaia.jcolibri.cbrcore.CBRCase;
 import ucm.gaia.jcolibri.cbrcore.CBRCaseBase;
 import ucm.gaia.jcolibri.cbrcore.CBRQuery;
-import ucm.gaia.jcolibri.cbrcore.CaseComponent;
 import ucm.gaia.jcolibri.cbrcore.Connector;
 import ucm.gaia.jcolibri.exception.ExecutionException;
 import ucm.gaia.jcolibri.method.retrieve.RetrievalResult;
 import ucm.gaia.jcolibri.method.retrieve.NNretrieval.NNConfig;
 import ucm.gaia.jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
-import ucm.gaia.jcolibri.method.retrieve.NNretrieval.similarity.GlobalSimilarityFunction;
 import ucm.gaia.jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
 import ucm.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase;
-import ucm.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Interval;
-import ucm.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString;
-import ucm.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Threshold;
 import ucm.gaia.jcolibri.method.retrieve.selection.SelectCases;
 
 import java.awt.*;
@@ -52,6 +47,12 @@ public class MainMenu implements StandardCBRApplication {
 		
 		simConfig = new NNConfig(); // KNN configuration
 		simConfig.setDescriptionSimFunction(new Average());  // global similarity function = average
+       /* private String name;
+        private String likelihood;
+        private String severity;
+        private String skills;
+        private String prerequisites;
+        private String mitigations;*/
 
 		simConfig.addMapping(new Attribute("likelihood", Model.class), new EqualsStringIgnoreCase());
 		simConfig.addMapping(new Attribute("severity", Model.class), new EqualsStringIgnoreCase());
@@ -78,6 +79,8 @@ public class MainMenu implements StandardCBRApplication {
 	//		System.out.println(nse.get_case().getDescription() + " -> " + nse.getEval());
 		    res.add(nse.get_case().getDescription() + " -> " + nse.getEval());
 		}
+		
+		
 		
 	}
 
@@ -128,6 +131,12 @@ public class MainMenu implements StandardCBRApplication {
 
 
         JButton fuzzy = new JButton("Fuzzy");
+        fuzzy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GUI();
+            }
+        });
         JButton bayes = new JButton("Bayes");
         bayes.addActionListener(new ActionListener() {
             @Override
@@ -135,6 +144,8 @@ public class MainMenu implements StandardCBRApplication {
                 new Bayes();
             }
         });
+
+        
 
         panel.add(fuzzy);
         panel.add(bayes);

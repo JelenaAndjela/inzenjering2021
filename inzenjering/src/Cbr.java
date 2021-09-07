@@ -1,15 +1,10 @@
-import java.awt.Component;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 
 import CaseBasedReasoning.Model;
 import ucm.gaia.jcolibri.cbraplications.StandardCBRApplication;
