@@ -1,4 +1,8 @@
+import org.apache.jena.base.Sys;
 import org.apache.jena.query.*;
+import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
@@ -72,6 +76,8 @@ public class RemoteDatabase {
                 + " attacks:prerequisites  ?prerequisites; attacks:mitigations  ?mitigations.}";
       //  System.out.println("OVO DA SE POPRAVI  remotr database nije se popravilo" );
 
+
+
         List<Attack> attackList =  new ArrayList<>();
 
         Query query = QueryFactory.create(queryString);
@@ -81,6 +87,10 @@ public class RemoteDatabase {
             ResultSet results = qexec.execSelect() ;
             while (results.hasNext()) {
                 QuerySolution solution = results.nextSolution() ;
+            //    System.out.println(solution.getLiteral("name").getString());
+             //   System.out.println(solution.getLiteral("likelihood_of_attack").getString());
+              //  System.out.println("ovo je dobro");
+
 
                 attackList.add(new Attack(solution.getLiteral("name").getString(),
                         solution.getLiteral("likelihood_of_attack").getString(),
@@ -96,6 +106,8 @@ public class RemoteDatabase {
         }
         
         for(Attack a:attackList) {
+       //     System.out.println("Svi napadi iz selecta suuuuu" + a.getName() +"mitigations "+a.getMitigations());
+
         	
         }
         

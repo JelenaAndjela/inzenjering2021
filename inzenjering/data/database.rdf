@@ -204,6 +204,16 @@
     		<attacks:mitigations rdf:datatype="http://w3.org/2001/XMLSchema#string">Availability Other Blocking a resource from functional operation denies its availability to authorized users.</attacks:mitigations>
     </rdf:Description>
 <!--21-->
+    <rdf:Description rdf:about="#ParametarInjection">
+    		<rdf:type rdf:resource="#Attack"/>
+    		<attacks:name rdf:datatype="http://w3.org/2001/XMLSchema#string">Parametar Injection</attacks:name>
+    	    <attacks:likelihood_of_attack rdf:datatype="http://w3.org/2001/XMLSchema#string">medium</attacks:likelihood_of_attack>
+    		<attacks:typical_severity rdf:datatype="http://w3.org/2001/XMLSchema#string">medium</attacks:typical_severity>
+    		<attacks:skills_required rdf:datatype="http://w3.org/2001/XMLSchema#string">none</attacks:skills_required>
+	     	<attacks:prerequisites rdf:datatype="http://w3.org/2001/XMLSchema#string">high</attacks:prerequisites>
+    		<attacks:mitigations rdf:datatype="http://w3.org/2001/XMLSchema#string"></attacks:mitigations>
+    </rdf:Description>
+<!--22-->
     <rdf:Description rdf:about="#Pretexting">
     		<rdf:type rdf:resource="#Attack"/>
     		<attacks:name rdf:datatype="http://w3.org/2001/XMLSchema#string">Pretexting</attacks:name>

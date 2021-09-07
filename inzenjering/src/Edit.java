@@ -2,18 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Properties;
+import java.util.List;
 
-public class Registration {
+public class Edit {
+    //public String impact="";
+    // public String scope="";
 
 
-    public Attack a;
-
-
-    public Registration(){
-        //  GridBagLayout layout = new GridBagLayout();
-        GridBagConstraints gbc = new GridBagConstraints();
+    public Edit(Attack attack){
+        RemoteDatabase.deleteQuery(attack);
+        //GridBagLayout layout = new GridBagLayout();
         GridLayout layout = new GridLayout(14,3);
+        GridBagConstraints gbc = new GridBagConstraints();
         JFrame frame = new JFrame();
         JPanel panel = new JPanel(layout);
         panel.setBorder(BorderFactory.createEmptyBorder(10,5,5,5));
@@ -38,7 +38,7 @@ public class Registration {
         textName.setFont(new Font("Arial", Font.PLAIN, 15));
         panel.add(textName,gbc);
 
-//prazna1
+        //prazna1
         gbc.fill = GridBagConstraints.CENTER;
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -67,7 +67,7 @@ public class Registration {
         likelihood.setFont(new Font("Arial", Font.PLAIN, 15));
         panel.add(likelihood,gbc);
 
-//prazna2
+        //prazna2
         gbc.fill = GridBagConstraints.CENTER;
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -164,7 +164,6 @@ public class Registration {
         JLabel prazna52 = new JLabel(" ");
         panel.add(prazna52,gbc);
 
-
         //mitigations
         gbc.fill = GridBagConstraints.CENTER;
         gbc.gridx = 0;
@@ -195,21 +194,27 @@ public class Registration {
         prazna112.setFont(new Font("Arial", Font.PLAIN, 5));
         panel.add(prazna112,gbc);
 
-
         gbc.fill = GridBagConstraints.CENTER;
         gbc.gridx = 0;
         gbc.gridy = 12;
         gbc.gridwidth = 2;
-        // gbc.weightx = 0.0;
-        //JLabel prazna21 = new JLabel(" ");
         JLabel calculate2 = new JLabel(" ");
-        // calculate2.setContentAreaFilled(true);
         panel.add(calculate2,gbc);
 
         gbc.fill = GridBagConstraints.CENTER;
         gbc.gridx = 1;
         gbc.gridy = 12;
         gbc.gridwidth = 2;
+
+        //set name
+        textName.setText(attack.name);
+        likelihood.setSelectedItem(attack.likelihood_of_attack);
+        typical_severity.setSelectedItem(attack.typical_severity);
+        comboSkills.setSelectedItem(attack.skills_required);
+        comboPrerequisites.setSelectedItem(attack.prerequisites);
+        textMitigaiton.setText(attack.mitigations);
+
+
         // gbc.weightx = 0.0;
         JButton calculate = new JButton("Add");
         calculate.setContentAreaFilled(true);
@@ -233,51 +238,35 @@ public class Registration {
                 }
                 if(textName.getText().length()!=0 && textMitigaiton.getText().length()!=0){
 
-                    //         System.out.println("da l uzme ovaj napad u registration");
-
                     Attack attack = new Attack(textName.getText(),
-                            likelihood.getSelectedItem().toString(),
                             textMitigaiton.getText(),
+                            likelihood.getSelectedItem().toString(),
                             comboPrerequisites.getSelectedItem().toString(),
                             comboSkills.getSelectedItem().toString(),
-                            typical_severity.getSelectedItem().toString()
-                    );
-                    //         System.out.println("da l dodje ovde u registration");
+                            typical_severity.getSelectedItem().toString());
+
+
                     RemoteDatabase.insertQuery(attack);
-                    a=attack;
 
                     JOptionPane.showMessageDialog(frame,
-                            "Attack successfully registered.",
+                            "Attack successfully edited.",
                             "Success message",
                             JOptionPane.INFORMATION_MESSAGE);
                     frame.dispose();
+
                 }
             }
         });
 
-
-
         frame.setContentPane(panel);
         frame.setPreferredSize(new Dimension(500, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setTitle("Add new attack");
+        frame.setTitle("Edit attack");
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
-
-    public Attack getAtt(Attack a) {
-        return a;
-    }
-
-    public Attack getA() {
-        return a;
-    }
-
-    public void setA(Attack a) {
-        this.a = a;
-    }
 
 
 

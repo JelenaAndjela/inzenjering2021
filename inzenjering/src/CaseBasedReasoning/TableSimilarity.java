@@ -15,7 +15,7 @@ public class TableSimilarity implements LocalSimilarityFunction {
 		int n = categories.size();
 		matrix = new double[n][n];
 		for (int i=0; i<n; i++)
-			matrix[i][i] = 1;
+			matrix[i][i] = 1;  // symbolic similarity of term with itself
 	}
 	
 	public void setSimilarity(String value1, String value2, double sim) {
@@ -48,4 +48,11 @@ public class TableSimilarity implements LocalSimilarityFunction {
 			return true;
 		return false;
 	}
+
+	
+
+
+	
+	
 }
+

@@ -15,5 +15,7 @@ public class Result {
 		super();
 		this.ress = ress;
 	}
+	
+	
 
 }
