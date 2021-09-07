@@ -25,8 +25,6 @@ public class MitigationsTable {
 
         }
 
-
-
         DefaultTableModel dm = new DefaultTableModel();
         dm.setDataVector(data, columnNames);
         JTable table = new JTable(dm);

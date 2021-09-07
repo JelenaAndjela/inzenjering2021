@@ -52,12 +52,6 @@ public class MainMenu implements StandardCBRApplication {
 		
 		simConfig = new NNConfig(); // KNN configuration
 		simConfig.setDescriptionSimFunction(new Average());  // global similarity function = average
-       /* private String name;
-        private String likelihood;
-        private String severity;
-        private String skills;
-        private String prerequisites;
-        private String mitigations;*/
 
 		simConfig.addMapping(new Attribute("likelihood", Model.class), new EqualsStringIgnoreCase());
 		simConfig.addMapping(new Attribute("severity", Model.class), new EqualsStringIgnoreCase());
@@ -84,8 +78,6 @@ public class MainMenu implements StandardCBRApplication {
 	//		System.out.println(nse.get_case().getDescription() + " -> " + nse.getEval());
 		    res.add(nse.get_case().getDescription() + " -> " + nse.getEval());
 		}
-		
-		
 		
 	}
 
@@ -137,7 +129,15 @@ public class MainMenu implements StandardCBRApplication {
 
         JButton fuzzy = new JButton("Fuzzy");
         JButton bayes = new JButton("Bayes");
-        
+        bayes.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Bayes();
+            }
+        });
+
+        panel.add(fuzzy);
+        panel.add(bayes);
 
         JButton register = new JButton("Add new attack");
         register.addActionListener(new ActionListener() {

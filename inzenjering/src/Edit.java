@@ -5,9 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class Edit {
-    //public String impact="";
-    // public String scope="";
-
 
     public Edit(Attack attack){
         RemoteDatabase.deleteQuery(attack);
